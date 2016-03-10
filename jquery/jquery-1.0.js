@@ -61,7 +61,7 @@ var $ = jQuery;
 
 jQuery.fn = jQuery.prototype = {
 	jquery: "$Rev: 509 $",
-
+	huhai:1,
 	size: function() {
 		return this.length;
 	},
