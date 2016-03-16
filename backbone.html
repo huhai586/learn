@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script src="jquery/jquery-1.12.0.js"></script>
+<script src="underscore/underscore.js"></script>
+<script src="backbone/backbone.js"></script>
+
+
+<script type="text/template" id="temp">
+    dsfsdfas
+    <%if(a){%>
+    有啊
+    <%}%>
+</script>
+
+
+<script>
+    var template=$("#temp").html();
+    var xx= _.template(template);
+    var yy=xx({c:1})
+    console.log(yy)
+</script>
+</body>
+</html>
