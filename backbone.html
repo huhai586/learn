@@ -7,40 +7,13 @@
 <body>
 <script src="jquery/jquery-1.12.0.js"></script>
 <script src="underscore/underscore.js"></script>
-<script src="backbone/backbone.js"></script>
+<script src="backbone/backbone-events.js"></script>
 
 <script>
-    //声明view
-    var view=Backbone.View.extend({
-        template: _.template("得到的数据是:<%=name%>"),
-        initialize:function(){
-            var data=this.model.toJSON();
-            var html=this.template(data);
-            this.$el.html(html)
-        }
-
-    })
-    //声明Model
-    var model=Backbone.Model.extend({
-
-    })
-    //声明collection
-    var collection=Backbone.Collection.extend({
-        model:model
-
-    })
-
-
-
-   var c=new collection;
-    c.on("add",render)
-    c.add([{"name":"胡海"}]);
-    function render(obj){
-       var v=new view({model:obj});
-        window.v=v;
-        var html= v.el;
-        $("body").append(html);
-    }
+         var object = {};
+         _.extend(object, Backbone.Events);
+         object.on('expand', function(){ alert('expanded'); });
+         object.trigger('expand');
 
 </script>
 
