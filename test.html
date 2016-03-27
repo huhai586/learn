@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!--<link rel="stylesheet" href=""/>-->
+</head>
+<body>
+
+<div class="aa">
+    <svg id="polaroid" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+	 viewBox="0 0 400 400" enable-background="new 0 0 400 400" xml:space="preserve" onclick="pola.reset().play();">
+
+
+            <path fill-rule="evenodd" clip-rule="evenodd" fill="#35AB50" d="M292.832,111.123c7.793-0.353,11.273,2.647,10.959,9.81
+		c-5.119,9.344-35.717,15.261-46.367,21.583c-26.686,15.839-47.682,32.144-62.386,59.254c-3.822,7.045-6.957,27.337-21.076,23.937
+		c-7.865-1.893-11.27-17.495-15.175-23.544c-8.081-12.516-18.348-20.585-30.35-29.431c-3.068-2.262-4.01-8.441-1.265-11.772
+		c5.465-6.632,14.286,0.122,18.125,3.139c7.529,5.917,15.94,12.33,21.498,20.014c3.372,5.231,6.745,10.465,10.116,15.696
+		c0.141,0,0.281,0,0.422,0c1.326-5.211,5.368-9.596,8.009-13.734c15.706-24.605,29.644-36.878,55.642-51.799
+		c4.928-2.828,9.457-6.675,15.174-9.025C266.836,120.861,282.975,116.553,292.832,111.123z"/>
+
+
+    </svg>
+</div>
+<style>
+    .aa{
+        width:400px;
+        height:400px;color:red;
+
+    }
+    #polaroid {
+        float: left;
+        width: 400px;
+        height: 320px;
+        stroke: #f9f9f9;
+        stroke-width: 3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-miterlimit: 10;
+    }
+    svg * {
+        fill: none;
+        stroke: currentColor;
+    }
+</style>
+<script src="svg/vivus.js"></script>
+
+<script>
+    // polaroid-dynamic
+    pola = new Vivus('polaroid', {type: 'scenario-sync', duration: 20, forceRender: false});</script>
+
+</body>
+</html>
