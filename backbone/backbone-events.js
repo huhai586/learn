@@ -42,9 +42,14 @@ var eventsApi = function(iteratee, events, name, callback, opts) {
 
 // Bind an event to a `callback` function. Passing `"all"` will bind
 // the callback to all events fired.
+//使用on将不同事件n和对应不同回调m统计起来，储存的格式为-----extends-->{事件1:数组1,事件2:数组2}
+//当某个事件发生时，循环数组里面的所有回调
 Events.on = function(name, callback, context) {
+    //internalOn为evnets内部声明的函数，但不属于events的属性，所以不能通过.号调用，这里面将events自身通过this传递
     return internalOn(this, name, callback, context);
 };
+
+
 
 // Guard the `listening` argument from the public API.
 var internalOn = function(obj, name, callback, context, listening) {
