@@ -50,7 +50,7 @@ Events.on = function(name, callback, context) {
 };
 
 
-
+//每次on的时候就调用一次internalOn
 // Guard the `listening` argument from the public API.
 var internalOn = function(obj, name, callback, context, listening) {
     obj._events = eventsApi(onApi, obj._events || {}, name, callback, {
@@ -250,9 +250,11 @@ var triggerApi = function(objEvents, name, cb, args) {
 // A difficult-to-believe, but optimized internal dispatch function for
 // triggering events. Tries to keep the usual cases speedy (most internal
 // Backbone events have 3 arguments).
+//events代表事件对应的callback对象
 var triggerEvents = function(events, args) {
     var ev, i = -1, l = events.length, a1 = args[0], a2 = args[1], a3 = args[2];
     switch (args.length) {
+        //判断trigger附带的参数数量，如果参数大于3个，使用apply
         case 0: while (++i < l) (ev = events[i]).callback.call(ev.ctx); return;
         case 1: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1); return;
         case 2: while (++i < l) (ev = events[i]).callback.call(ev.ctx, a1, a2); return;
