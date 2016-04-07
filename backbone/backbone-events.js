@@ -42,10 +42,10 @@ var eventsApi = function(iteratee, events, name, callback, opts) {
 
 // Bind an event to a `callback` function. Passing `"all"` will bind
 // the callback to all events fired.
-//使用on将不同事件n和对应不同回调m统计起来，储存的格式为-----extends-->{事件1:数组1,事件2:数组2}
-//当某个事件发生时，循环数组里面的所有回调
+//浣跨敤on灏嗕笉鍚屼簨浠秐鍜屽搴斾笉鍚屽洖璋僲缁熻璧锋潵锛屽偍瀛樼殑鏍煎紡涓�-----extends-->{浜嬩欢1:鏁扮粍1,浜嬩欢2:鏁扮粍2}
+//褰撴煇涓簨浠跺彂鐢熸椂锛屽惊鐜暟缁勯噷闈㈢殑鎵�鏈夊洖璋�
 Events.on = function(name, callback, context) {
-    //internalOn为evnets内部声明的函数，但不属于events的属性，所以不能通过.号调用，这里面将events自身通过this传递
+    //internalOn涓篹vnets鍐呴儴澹版槑鐨勫嚱鏁帮紝浣嗕笉灞炰簬events鐨勫睘鎬э紝鎵�浠ヤ笉鑳介�氳繃.鍙疯皟鐢紝杩欓噷闈㈠皢events鑷韩閫氳繃this浼犻��
     return internalOn(this, name, callback, context);
 };
 
