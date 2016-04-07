@@ -10,14 +10,20 @@
 <script src="backbone/backbone-events.js"></script>
 
 <script>
-         var object = {};
+         var object = {},titleView={};
+         titleView.update={}
          var ev=_.extend(object, Backbone.Events);
          console.log(ev)
-         object.on('expand', function(){ console.log('expanded'); });
-         object.on('expand', function(){ console.log('expanded'); });
-         object.on('test', function(){ console.log('expanded'); });
-         object.trigger('expand');
-
+//         object.on('expand', function(){ console.log('expanded'); });
+//         object.on('expand', function(){ console.log('expanded'); });
+//         object.on('test', function(){ console.log('expanded'); });
+//         object.trigger('expand');
+         object.on({
+             "change:title": titleView.update,
+             "change:author": titleView.update,
+             "destroy": titleView.remove
+         });
+         object.trigger("huhai",{sd:1})
 </script>
 
 
