@@ -9,4 +9,5 @@ if(uidDOM){
     console.log(parents)
     parents.remove()
     parents.hide()
+    test
 }
