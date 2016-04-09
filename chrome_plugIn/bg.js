@@ -17,7 +17,15 @@ chrome.runtime.onMessage.addListener(function(msg, sender) {
     }
 
 //添加css值
-    blockCSS=blockCSS+"{display:none}"
-    var a='body{ font-size:30px !important}'
-    chrome.tabs.insertCSS(sender.tab.id,{code:blockCSS});
+//    blockCSS=blockCSS+"{display:none}"
+//    var a='body{ font-size:30px !important}'
+//    chrome.tabs.insertCSS(sender.tab.id,{code:a});
+
+
+
+    var a='td.postauthor{ display:none}';
+    var  style=document.createElement("style");
+    style.innerText=a;
+    document.body.appendChild(style)
+
 });

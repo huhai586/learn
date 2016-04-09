@@ -22,8 +22,8 @@
   "content_scripts": [
     {
       "matches": ["http://www.hi-pda.com/forum/*"],
-      "js": ["jquery.js","process.js"],
-      "run_at":"document_start"
+      "js": ["jquery.js","underscore.js","process.js"],
+      "run_at":"document_end"
     }
   ]
 }
