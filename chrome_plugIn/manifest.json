@@ -1,28 +1,29 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "hi-block",
+  "description": "hipda 言论屏蔽工具，屏蔽你不想看到的言论",
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "images/icon.png",
+    "default_popup": "popup/popup.html"
   },
   "permissions": [
     "activeTab",
     "notifications",
-    "http://www.hi-pda.com/forum/*"
+    "http://www.hi-pda.com/forum/*",
+    "storage"
   ],
   "background": {
 
     "persistent": false,
-    "page": "background.html"
+    "page": "background/background.html"
   },
   "content_scripts": [
     {
       "matches": ["http://www.hi-pda.com/forum/*"],
-      "js": ["jquery.js","underscore.js","process.js"],
+      "js": ["library/jquery.js","library/underscore.js","process.js"],
       "run_at":"document_end"
     }
   ]

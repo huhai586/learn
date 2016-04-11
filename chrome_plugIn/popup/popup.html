@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../library/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../library/bootstrap-switch/css/bootstrap3/bootstrap-switch.css"/>
+</head>
+<body>
+    <div class="alert infoBar" role="alert"></div>
+    <span class="glyphicon glyphicon-cog title" aria-hidden="true"></span>设置
+
+
+
+    <div class="status">
+            <input type="checkbox" class="switch-checkbox"/>
+    </div>
+    <span class="glyphicon glyphicon-home title" aria-hidden="true"></span>小黑屋
+
+
+    <div class="blockedUser">
+        <ul></ul>
+    </div>
+    <span class=" glyphicon glyphicon-filter title" aria-hidden="true"></span>输入你想屏蔽的ID
+
+    <textarea class="form-control" id="inputUser" cols="30" rows="3" placeholder="支持多个输入，请用逗号分割"></textarea>
+    <center><button id="submit" class="btn btn-primary">提交</button></center>
+    <style>
+        body{
+            min-width: 200px;
+            padding:10px;
+        }
+        .alert{
+            display: none;
+        }
+        #submit{
+            margin-top:20px;
+        }
+        .title{
+            margin:10px 0;
+        }
+        .blockedUser ul{
+            margin:0;
+            padding:0;
+            list-style-type: none;
+        }
+        .blockedUser ul li{
+            display: inline-block;
+            padding:5px;
+            border:1px dashed #ccc;
+            margin:5px;
+            cursor:pointer;
+            position:relative;
+        }
+        .blockedUser ul li span{
+            width: 100%;
+            height:100%;
+            position: absolute;
+            /*left:50%;*/
+            /*margin-left: -7px;*/
+            /*margin-top: -7px;*/
+            /*top:50%;*/
+            display: none;
+            
+        }
+        .blockedUser ul li:hover{
+            background:#999;
+            color:white;
+        }
+        .blockedUser ul li:hover span{
+            display: block;
+            opacity: 0.8;
+            color: red;
+
+        }
+    </style>
+
+<script src="../library/jquery.js"></script>
+<script src="../library/underscore.js"></script>
+<script src="../library/bootstrap/js/bootstrap.min.js"></script>
+<script src="../library/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
