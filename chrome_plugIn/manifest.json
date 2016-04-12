@@ -1,12 +1,12 @@
 {
   "manifest_version": 2,
 
-  "name": "hi-block",
-  "description": "hipda 言论屏蔽工具，屏蔽你不想看到的言论",
+  "name": "hi-filter",
+  "description": "屏蔽你在hipda上不想看到的言论",
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "images/icon.png",
+    "default_icon": "images/icon16.png",
     "default_popup": "popup/popup.html"
   },
   "permissions": [
@@ -15,10 +15,11 @@
     "http://www.hi-pda.com/forum/*",
     "storage"
   ],
-  "background": {
-
-    "persistent": false,
-    "page": "background/background.html"
+  "icons":
+  {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
   },
   "content_scripts": [
     {
@@ -28,4 +29,3 @@
     }
   ]
 }
-//胡海

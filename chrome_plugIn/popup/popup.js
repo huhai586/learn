@@ -1,6 +1,6 @@
 
 
-window.pubAttributes={};
+window.pubAttributes={blocked:[]};
 $('.switch-checkbox').bootstrapSwitch({
     onText:"打开",
     offText:"关闭",
@@ -30,7 +30,6 @@ function showBlock(){
             return
         }
         //判断status
-        window.pubAttributes.blocked=[];
         var blockArray=obj.blocked;
         var length=blockArray.length;
         var closeSpan='<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>';
@@ -38,13 +37,13 @@ function showBlock(){
             //不为0
             var blockedUser=""
             _.each(blockArray,function(element,index){
-                var solo='<li class="block-solo">'+element+closeSpan+'</li>';
+                var solo='<li class="block-solo"><i>'+element+"</i>"+closeSpan+'</li>';
                 blockedUser=blockedUser+solo
             });
             $(".blockedUser ul").html(blockedUser);
             window.pubAttributes.blocked=blockArray;
         }else{
-            $(".blockedUser ul").html("没有人被屏蔽!")
+            $(".blockedUser ul").html("暂无被屏蔽的ID")
         }
 
     });
@@ -75,7 +74,7 @@ $("#submit").on("click",function(){
 function getInput(){
     //处理输入
     var inputData=$("#inputUser").val().trim();
-    var inputToArray=inputData.split(/[,，]/);
+    var inputToArray=inputData.split(/[ ]/);
     //循环遍历每个Array值，清理格式
     _.each(inputToArray,function(ele,index){
         inputToArray[index]=ele.trim();
@@ -96,4 +95,15 @@ function getInput(){
     //
 }
 
+//监听点击事件
+$(".blockedUser").on("click","span.glyphicon",function(){
+    var username=$(this).siblings("i").html();
+    chrome.storage.sync.get("blocked",function(obj){
+        var deleteAfter= _.without(obj.blocked,username);
+        chrome.storage.sync.set({blocked:deleteAfter},function(){
+            window.location.reload()
+        })
+    })
+
+})
 

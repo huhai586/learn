@@ -23,7 +23,7 @@
     </div>
     <span class=" glyphicon glyphicon-filter title" aria-hidden="true"></span>输入你想屏蔽的ID
 
-    <textarea class="form-control" id="inputUser" cols="30" rows="3" placeholder="支持多个输入，请用逗号分割"></textarea>
+    <textarea class="form-control" id="inputUser" cols="30" rows="3" placeholder="支持多个输入，请用空格分开"></textarea>
     <center><button id="submit" class="btn btn-primary">提交</button></center>
     <style>
         body{
@@ -56,11 +56,13 @@
             width: 100%;
             height:100%;
             position: absolute;
-            /*left:50%;*/
-            /*margin-left: -7px;*/
-            /*margin-top: -7px;*/
-            /*top:50%;*/
+            left: 0;
+            top: 0;
             display: none;
+            line-height: 32px;
+            text-align: center;
+            background:rgba(0,0,0,0.5);
+
             
         }
         .blockedUser ul li:hover{
@@ -68,10 +70,11 @@
             color:white;
         }
         .blockedUser ul li:hover span{
-            display: block;
-            opacity: 0.8;
-            color: red;
+        display: block;
 
+        }
+        .btn{
+            width:90%
         }
     </style>
 
