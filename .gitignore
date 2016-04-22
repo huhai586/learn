@@ -1,2 +1,4 @@
 # Created by .ignore support plugin (hsz.mobi)
+/react-0.13.0/dashboard/dashboard
+/react-0.13.0/node_modules
 .idea

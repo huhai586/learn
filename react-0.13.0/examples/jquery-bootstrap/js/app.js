@@ -94,7 +94,16 @@ var Example = React.createClass({
       this.refs.modal.close();
     }
   },
+  test:function(){
+    console.log(this);
+    console.log("----------------");
+    function s(){
+      console.log(this)
+    }
+    s()
+  },
   render: function() {
+    this.test()
     var modal = null;
     modal = (
       <BootstrapModal
